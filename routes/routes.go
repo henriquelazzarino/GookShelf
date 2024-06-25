@@ -25,14 +25,4 @@ func SetupRoutes(router *gin.Engine) {
         userRoutes.PUT("/:id", controllers.UpdateUser)
         userRoutes.DELETE("/:id", controllers.DeleteUser)
     }
-
-    // Rotas para editores
-    publisherRoutes := router.Group("/publishers")
-    {
-        publisherRoutes.POST("", controllers.CreatePublisher)
-        publisherRoutes.GET("", controllers.GetAllPublishers)
-        publisherRoutes.GET("/:id", controllers.GetPublisher)
-        publisherRoutes.PUT("/:id", controllers.UpdatePublisher)
-        publisherRoutes.DELETE("/:id", controllers.DeletePublisher)
-    }
 }

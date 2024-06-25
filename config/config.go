@@ -10,6 +10,7 @@ import (
 var (
     JWTSecret string
     Port      string
+    FirebaseURL string
 )
 
 func LoadEnv() {
@@ -21,8 +22,9 @@ func LoadEnv() {
 
     JWTSecret = os.Getenv("JWT_SECRET")
     Port = os.Getenv("PORT")
+    FirebaseURL = os.Getenv("FIREBASE_URL")
 
-    if JWTSecret == "" || Port == "" {
+    if JWTSecret == "" || Port == "" || FirebaseURL == "" {
         log.Fatalf("Required environment variables are not set")
     }
 }

@@ -6,11 +6,11 @@ import (
 	"github.com/henriquelazzarino/gookshelf/repositories"
 )
 
-func CreateBook(book *models.Book) error {
+func CreateBook(book *models.Book) (string, error) {
     // Verifica se o livro já existe
     _, err := repositories.GetBook(book.ID)
-    if err == nil {
-        return errors.New("book with same ID already exists")
+    if err != nil {
+        return "", errors.New("book with same ID already exists")
     }
 
     return repositories.CreateBook(book)

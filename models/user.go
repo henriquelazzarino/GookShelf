@@ -1,9 +1,8 @@
 package models
 
 type User struct {
-    ID           string `json:"id"`
+    ID       string `json:"id,omitempty"`
     Name         string `json:"name"`
-    Picture      string `json:"picture"`
     Age          int    `json:"age"`
     BookedBooks  []Book `json:"bookedBooks"`
 }

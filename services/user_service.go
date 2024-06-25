@@ -6,11 +6,11 @@ import (
 	"github.com/henriquelazzarino/gookshelf/repositories"
 )
 
-func CreateUser(user *models.User) error {
+func CreateUser(user *models.User) (string, error) {
     // Verifica se o usuário já existe
     _, err := repositories.GetUser(user.ID)
-    if err == nil {
-        return errors.New("user with same ID already exists")
+    if err != nil {
+        return "", errors.New("user with same ID already exists")
     }
 
     return repositories.CreateUser(user)

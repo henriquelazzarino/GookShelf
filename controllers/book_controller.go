@@ -14,7 +14,7 @@ func CreateBook(c *gin.Context) {
         return
     }
 
-    if err := services.CreateBook(&book); err != nil {
+    if _, err := services.CreateBook(&book); err != nil {
         c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
         return
     }

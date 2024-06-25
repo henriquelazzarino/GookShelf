@@ -14,7 +14,7 @@ func CreateUser(c *gin.Context) {
         return
     }
 
-    if err := services.CreateUser(&user); err != nil {
+    if _, err := services.CreateUser(&user); err != nil {
         c.JSON(http.StatusInternalServerError, gin.H{"error": err.Error()})
         return
     }

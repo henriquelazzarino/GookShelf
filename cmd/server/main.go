@@ -8,8 +8,11 @@ import (
 )
 
 func main() {
-    // Load environment variables
+    // Carregar variáveis de ambiente
     config.LoadEnv()
+
+    // Inicializar Firebase
+    config.InitFirebase()
 
     r := gin.Default()
     routes.SetupRoutes(r)
