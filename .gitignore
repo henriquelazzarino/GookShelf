@@ -22,4 +22,4 @@ go.work
 
 # Environment variables file
 config/.env
-config/serviceAccountKey.json
+config/serviceCredentials.json
