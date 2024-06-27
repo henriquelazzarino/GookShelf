@@ -73,6 +73,62 @@ func GetUserByEmail(email string) (*models.User, error) {
 	return nil, errors.New("user not found")
 }
 
+func AddBookToUser(user *models.User, book *models.Book) error {
+	// Verifica se o livro já está na lista de livros do usuário
+	for _, b := range user.BookedBooks {
+		if b.ID == book.ID {
+			return errors.New("book already added to user")
+		}
+	}
+
+	if !book.IsFree {
+		return errors.New("book is not available")
+	}
+
+	if book.MinimumAge > user.Age {
+		return errors.New("user is not old enough to book this book")
+	}
+
+	// Adiciona o livro à lista de livros do usuário
+	user.BookedBooks = append(user.BookedBooks, *book)
+
+	// Atualiza o usuário no Firebase
+	if err := UpdateUser(user.ID, user); err != nil {
+		return err
+	}
+
+	SetIsFree(book.ID, false)
+
+	return nil
+}
+
+func RemoveBookFromUser(user *models.User, book *models.Book) error {
+	// Verifica se o livro está na lista de livros do usuário
+	var bookIndex = -1
+	for i, b := range user.BookedBooks {
+		if b.ID == book.ID {
+			bookIndex = i
+			break
+		}
+	}
+
+	if bookIndex == -1 {
+		return errors.New("book not found in user's list")
+	}
+
+	// Remove o livro da lista de livros do usuário
+	user.BookedBooks = append(user.BookedBooks[:bookIndex], user.BookedBooks[bookIndex+1:]...)
+
+	// Atualiza o usuário no Firebase
+	if err := UpdateUser(user.ID, user); err != nil {
+		return err
+	}
+
+	SetIsFree(book.ID, true)
+
+	return nil
+}
+
 func UpdateUser(id string, newUser *models.User) error {
 	ref := config.FirebaseClient.NewRef("users").Child(id)
 	var existingUser models.User

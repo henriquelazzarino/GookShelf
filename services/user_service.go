@@ -29,6 +29,38 @@ func GetUserByEmail(email string) (*models.User, error) {
 	return repositories.GetUserByEmail(email)
 }
 
+func AddBookToUser(userId string, bookId string) error {
+	// Verifica se o usuário existe
+	user, err := repositories.GetUser(userId)
+	if err != nil {
+		return err
+	}
+
+	// Verifica se o livro existe
+	book, err := repositories.GetBook(bookId)
+	if err != nil {
+		return err
+	}
+
+	return repositories.AddBookToUser(user, book)
+}
+
+func RemoveBookFromUser(userId string, bookId string) error {
+	// Verifica se o usuário existe
+	user, err := repositories.GetUser(userId)
+	if err != nil {
+		return err
+	}
+
+	// Verifica se o livro existe
+	book, err := repositories.GetBook(bookId)
+	if err != nil {
+		return err
+	}
+
+	return repositories.RemoveBookFromUser(user, book)
+}
+
 func UpdateUser(id string, newUser *models.User) error {
 	// Verifica se o usuário existe
 	_, err := repositories.GetUser(id)

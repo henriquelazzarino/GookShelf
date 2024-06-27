@@ -1,45 +1,56 @@
 package services
 
 import (
-    "errors"
-    "github.com/henriquelazzarino/gookshelf/models"
+	"errors"
+
+	"github.com/henriquelazzarino/gookshelf/models"
 	"github.com/henriquelazzarino/gookshelf/repositories"
 )
 
 func CreateBook(book *models.Book) (string, error) {
-    // Verifica se o livro já existe
-    _, err := repositories.GetBook(book.ID)
-    if err != nil {
-        return "", errors.New("book with same ID already exists")
-    }
+	// Verifica se o livro já existe
+	_, err := repositories.GetBook(book.ID)
+	if err != nil {
+		return "", errors.New("book with same ID already exists")
+	}
 
-    return repositories.CreateBook(book)
+	return repositories.CreateBook(book)
 }
 
 func GetAllBooks() ([]models.Book, error) {
-    return repositories.GetAllBooks()
+	return repositories.GetAllBooks()
 }
 
 func GetBook(id string) (*models.Book, error) {
-    return repositories.GetBook(id)
+	return repositories.GetBook(id)
+}
+
+func SetIsFree(id string, isFree bool) error {
+	// Verifica se o livro existe
+	_, err := repositories.GetBook(id)
+	if err != nil {
+		return err
+	}
+
+	return repositories.SetIsFree(id, isFree)
 }
 
 func UpdateBook(id string, newBook *models.Book) error {
-    // Verifica se o livro existe
-    _, err := repositories.GetBook(id)
-    if err != nil {
-        return err
-    }
+	// Verifica se o livro existe
+	_, err := repositories.GetBook(id)
+	if err != nil {
+		return err
+	}
 
-    return repositories.UpdateBook(id, newBook)
+	return repositories.UpdateBook(id, newBook)
 }
 
 func DeleteBook(id string) error {
-    // Verifica se o livro existe
-    _, err := repositories.GetBook(id)
-    if err != nil {
-        return err
-    }
+	// Verifica se o livro existe
+	_, err := repositories.GetBook(id)
+	if err != nil {
+		return err
+	}
 
-    return repositories.DeleteBook(id)
+	return repositories.DeleteBook(id)
 }
