@@ -1,0 +1,328 @@
+{
+    "clientName": "Thunder Client",
+    "collectionName": "GookShelf",
+    "collectionId": "a96e4587-c657-4059-b520-96fd05379c5b",
+    "dateExported": "2024-06-28T20:20:33.765Z",
+    "version": "1.2",
+    "folders": [
+        {
+            "_id": "6fe033d9-4921-4b2a-9364-1f2d3ae6279d",
+            "name": "Users",
+            "containerId": "",
+            "created": "2024-06-26T22:32:33.556Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "43e5ec9e-370d-4f72-a3aa-543209145059",
+            "name": "Books",
+            "containerId": "",
+            "created": "2024-06-26T22:32:38.504Z",
+            "sortNum": 20000
+        },
+        {
+            "_id": "e377f819-4a46-44f9-bd20-4a10ec8db634",
+            "name": "Auth",
+            "containerId": "",
+            "created": "2024-06-26T22:44:18.618Z",
+            "sortNum": 30000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "2b54b21e-749d-41d1-9bc9-a1e043c59310",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "6fe033d9-4921-4b2a-9364-1f2d3ae6279d",
+            "name": "Create",
+            "url": "http://localhost:8080/users",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-06-26T22:32:44.991Z",
+            "modified": "2024-06-28T01:42:59.283Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Teste 5\",\n  \"password\": \"teste5\",\n  \"email\": \"teste5@teste.com\",\n  \"age\": 56,\n  \"role\": \"regular\",\n  \"bookedBooks\": []\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1NDI1MzYsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJsaWJyYXJpYW4iLCJzdWIiOiItTzBSUDZfTTFqQkw0a2pnQlpRRSJ9.hRgdvaVCFkx9r2opl7LGD7yEVKs37oHm3jAyECdlK0c"
+            }
+        },
+        {
+            "_id": "08c1087a-81aa-4472-be41-d7ad429262da",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "6fe033d9-4921-4b2a-9364-1f2d3ae6279d",
+            "name": "Read All",
+            "url": "http://localhost:8080/users",
+            "method": "GET",
+            "sortNum": 30000,
+            "created": "2024-06-26T22:34:29.103Z",
+            "modified": "2024-06-28T00:36:07.844Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1MzgzNDgsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJhZG1pbiIsInN1YiI6Ii1PMEx3RnpIZGx0aVpBN3ltSWd4In0.OeoRzn_osUIlZ64baHo6imwnmU-lws3LmBco2pHA1ZA"
+            }
+        },
+        {
+            "_id": "5079cad2-394a-47f1-a4be-e12fea43d39a",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "6fe033d9-4921-4b2a-9364-1f2d3ae6279d",
+            "name": "Read One",
+            "url": "http://localhost:8080/users/{id}",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2024-06-26T22:34:43.028Z",
+            "modified": "2024-06-28T00:36:27.260Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "-O0RGI7XU6fl9oThoVJm",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1MzgzNDgsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJhZG1pbiIsInN1YiI6Ii1PMEx3RnpIZGx0aVpBN3ltSWd4In0.OeoRzn_osUIlZ64baHo6imwnmU-lws3LmBco2pHA1ZA"
+            }
+        },
+        {
+            "_id": "08c34526-adab-4a99-aa26-53b8218e9de0",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "6fe033d9-4921-4b2a-9364-1f2d3ae6279d",
+            "name": "Update",
+            "url": "http://localhost:8080/users/{id}",
+            "method": "PUT",
+            "sortNum": 50000,
+            "created": "2024-06-26T22:35:05.490Z",
+            "modified": "2024-06-28T01:22:14.206Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "-O0RP6_M1jBL4kjgBZQE",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"fewf\",\n  \"password\": \"teste5\",\n  \"email\": \"teste5@teste.com\",\n  \"age\": 56,\n  \"bookedBooks\": [],\n  \"role\": \"librarian\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1NDEwMjYsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJyZWd1bGFyIiwic3ViIjoiLU8wUlA2X00xakJMNGtqZ0JaUUUifQ.9zRZ-P4QJmYx7cHYsb9ZfxIszxX0mDOrTXFb6Lu29rc"
+            }
+        },
+        {
+            "_id": "99d00270-bd86-433c-b50a-e3f99b69dcff",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "6fe033d9-4921-4b2a-9364-1f2d3ae6279d",
+            "name": "Delete",
+            "url": "http://localhost:8080/users/{id}",
+            "method": "DELETE",
+            "sortNum": 60000,
+            "created": "2024-06-26T22:35:11.391Z",
+            "modified": "2024-06-28T01:14:13.835Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "-O0M6r6KR1GMm-njv2GL",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1Mzg3NzUsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJyZWd1bGFyIiwic3ViIjoiLU8wTTZyNktSMUdNbS1uanYyR0wifQ.MXD9-1QzY2QR2TVQqy_7ZyhORlGR3xFrykFon30z_t4"
+            }
+        },
+        {
+            "_id": "521c5ec6-9b4e-4ba5-8c27-ea9cc660d58b",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "43e5ec9e-370d-4f72-a3aa-543209145059",
+            "name": "Create",
+            "url": "http://localhost:8080/books",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2024-06-26T22:35:20.702Z",
+            "modified": "2024-06-28T01:42:53.334Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Teste\",\n  \"description\": \"Lorem Ipsum Dolor Sit Amet\",\n  \"author\": \"Autor Teste\",\n  \"publisher\": \"Editora Teste\",\n  \"isFree\": true,\n  \"releaseDate\": \"04/07/2005\",\n  \"minimumAge\": 90\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1NDI1MzYsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJsaWJyYXJpYW4iLCJzdWIiOiItTzBSUDZfTTFqQkw0a2pnQlpRRSJ9.hRgdvaVCFkx9r2opl7LGD7yEVKs37oHm3jAyECdlK0c"
+            }
+        },
+        {
+            "_id": "9851ec64-bc40-4f48-b497-42e868d1198c",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "43e5ec9e-370d-4f72-a3aa-543209145059",
+            "name": "Read All",
+            "url": "http://localhost:8080/books",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2024-06-26T22:40:23.278Z",
+            "modified": "2024-06-28T00:40:00.671Z",
+            "headers": [],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1MzgzNDgsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJhZG1pbiIsInN1YiI6Ii1PMEx3RnpIZGx0aVpBN3ltSWd4In0.OeoRzn_osUIlZ64baHo6imwnmU-lws3LmBco2pHA1ZA"
+            }
+        },
+        {
+            "_id": "0b58d763-0701-41d0-bdbe-6a268dcc1baa",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "43e5ec9e-370d-4f72-a3aa-543209145059",
+            "name": "Read One",
+            "url": "http://localhost:8080/books/{id}",
+            "method": "GET",
+            "sortNum": 90000,
+            "created": "2024-06-26T22:40:36.341Z",
+            "modified": "2024-06-28T00:43:02.479Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "-O0RHAhrbglEIq9sQg6o",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1MzgzNDgsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJhZG1pbiIsInN1YiI6Ii1PMEx3RnpIZGx0aVpBN3ltSWd4In0.OeoRzn_osUIlZ64baHo6imwnmU-lws3LmBco2pHA1ZA"
+            }
+        },
+        {
+            "_id": "84442556-aeea-45ac-bf75-c4b66096ab3b",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "43e5ec9e-370d-4f72-a3aa-543209145059",
+            "name": "Update",
+            "url": "http://localhost:8080/books/{id}",
+            "method": "PUT",
+            "sortNum": 100000,
+            "created": "2024-06-26T22:41:54.215Z",
+            "modified": "2024-06-28T00:43:22.471Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "-O0RHAhrbglEIq9sQg6o",
+                    "isPath": true
+                }
+            ],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Teste1\",\n  \"description\": \"Lorem Ipsum Dolor Sit Amet\",\n  \"author\": \"Autor Teste\",\n  \"publisher\": \"Editora Teste\",\n  \"isFree\": true,\n  \"releaseDate\": \"04/07/2005\",\n  \"minimumAge\": 16\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1MzgzNDgsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJhZG1pbiIsInN1YiI6Ii1PMEx3RnpIZGx0aVpBN3ltSWd4In0.OeoRzn_osUIlZ64baHo6imwnmU-lws3LmBco2pHA1ZA"
+            }
+        },
+        {
+            "_id": "afe0a586-a806-4a1b-8c5c-c4d143ebf116",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "43e5ec9e-370d-4f72-a3aa-543209145059",
+            "name": "Delete",
+            "url": "http://localhost:8080/books/{id}",
+            "method": "DELETE",
+            "sortNum": 110000,
+            "created": "2024-06-26T22:43:21.866Z",
+            "modified": "2024-06-28T00:46:22.201Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "id",
+                    "value": "-O0LvIH-LR4Efc8OlKc_",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1MzgzNDgsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJhZG1pbiIsInN1YiI6Ii1PMEx3RnpIZGx0aVpBN3ltSWd4In0.OeoRzn_osUIlZ64baHo6imwnmU-lws3LmBco2pHA1ZA"
+            }
+        },
+        {
+            "_id": "a4384c54-48ed-4323-9378-1b807839e468",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "e377f819-4a46-44f9-bd20-4a10ec8db634",
+            "name": "Login",
+            "url": "http://localhost:8080/login",
+            "method": "POST",
+            "sortNum": 120000,
+            "created": "2024-06-26T22:44:25.078Z",
+            "modified": "2024-06-28T01:17:06.195Z",
+            "headers": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\": \"teste5@teste.com\",\n  \"password\": \"teste5\"\n}",
+                "form": []
+            }
+        },
+        {
+            "_id": "da935103-c34f-46d3-8b7e-1b213f78400b",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "6fe033d9-4921-4b2a-9364-1f2d3ae6279d",
+            "name": "Add Book To User",
+            "url": "http://localhost:8080/users/book/{bookId}/user/{userId}",
+            "method": "GET",
+            "sortNum": 130000,
+            "created": "2024-06-26T23:11:19.072Z",
+            "modified": "2024-06-28T01:43:06.490Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "bookId",
+                    "value": "-O0LvIH-LR4Efc8OlKc_",
+                    "isPath": true
+                },
+                {
+                    "name": "userId",
+                    "value": "-O0LwFzHdltiZA7ymIgx",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk1NDI1MzYsImlzcyI6Imdvb2tzaGVsZiIsInJvbGUiOiJsaWJyYXJpYW4iLCJzdWIiOiItTzBSUDZfTTFqQkw0a2pnQlpRRSJ9.hRgdvaVCFkx9r2opl7LGD7yEVKs37oHm3jAyECdlK0c"
+            }
+        },
+        {
+            "_id": "0e739d9d-0bcf-4398-bbcf-05b5051c2270",
+            "colId": "a96e4587-c657-4059-b520-96fd05379c5b",
+            "containerId": "6fe033d9-4921-4b2a-9364-1f2d3ae6279d",
+            "name": "Remove Book From User",
+            "url": "http://localhost:8080/users/remove/book/{bookId}/user/{userId}",
+            "method": "GET",
+            "sortNum": 140000,
+            "created": "2024-06-27T00:05:04.547Z",
+            "modified": "2024-06-27T00:18:59.068Z",
+            "headers": [],
+            "params": [
+                {
+                    "name": "bookId",
+                    "value": "-O0LvIH-LR4Efc8OlKc_",
+                    "isPath": true
+                },
+                {
+                    "name": "userId",
+                    "value": "-O0LvB1Onajm9cFtBFuz",
+                    "isPath": true
+                }
+            ],
+            "auth": {
+                "type": "bearer",
+                "bearer": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTk0NTEwNjcsImlzcyI6Imdvb2tzaGVsZiIsInN1YiI6ImFkbWluIn0.xtZFn8e-yC6kUgOO9OjiL7r__tKo3j1pvquh2wy2qpU"
+            }
+        }
+    ],
+    "ref": "I_MBHEe8jUjL-Nvph1dVvGFzcC9BuYcaVroFr5e9lBM0nDbCMx6gurKXhoc28a0dzg7H3jI54swBBL-V08xBMg"
+}
