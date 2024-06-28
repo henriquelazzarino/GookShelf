@@ -5,12 +5,13 @@ import (
 )
 
 type User struct {
-	ID          string `json:"id,omitempty"`
-	Name        string `json:"name"`
-	Password    string `json:"password"`
-	Email       string `json:"email"`
-	Age         int    `json:"age"`
-	BookedBooks []Book `json:"bookedBooks"`
+	ID          string   `json:"id,omitempty"`
+	Name        string   `json:"name"`
+	Password    string   `json:"password"`
+	Email       string   `json:"email"`
+	Age         int      `json:"age"`
+	BookedBooks []Book   `json:"bookedBooks"`
+	Role        UserRole `json:"role"`
 }
 
 func (u *User) HashPassword() string {

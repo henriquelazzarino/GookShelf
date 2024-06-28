@@ -2,6 +2,7 @@ package services
 
 import (
 	"errors"
+	"fmt"
 	"time"
 
 	"github.com/dgrijalva/jwt-go"
@@ -18,23 +19,26 @@ func Login(email string, password string) (string, error) {
 	}
 
 	if user == nil {
-		return "", errors.New("invalid credentials")
+		return "", errors.New("invalid credentials1")
 	}
+
+	fmt.Println(email, password, user.Password)
 
 	err = bcrypt.CompareHashAndPassword([]byte(user.Password), []byte(password))
 	if err != nil {
-		return "", errors.New("invalid credentials")
+		return "", errors.New("invalid credentials2")
 	}
 
-	return generateJWT(user.ID)
+	return generateJWT(user.ID, user.Role)
 }
 
-func generateJWT(userID string) (string, error) {
+func generateJWT(userID string, userRole models.UserRole) (string, error) {
 	// Set claims for JWT
 	claims := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
-		"iss": "gookshelf",                      // Issuer
-		"sub": userID,                           // Subject (user ID)
-		"exp": time.Now().Add(time.Hour).Unix(), // Expires in 1 hour
+		"iss":  "gookshelf",                      // Issuer
+		"sub":  userID,                           // Subject (user ID)
+		"role": userRole,                         // Role
+		"exp":  time.Now().Add(time.Hour).Unix(), // Expires in 1 hour
 	})
 
 	// Use a secret key for signing

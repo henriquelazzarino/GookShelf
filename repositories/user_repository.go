@@ -93,7 +93,7 @@ func AddBookToUser(user *models.User, book *models.Book) error {
 	user.BookedBooks = append(user.BookedBooks, *book)
 
 	// Atualiza o usuário no Firebase
-	if err := UpdateUser(user.ID, user); err != nil {
+	if err := UpdateUser(user.ID, user, false); err != nil {
 		return err
 	}
 
@@ -120,7 +120,7 @@ func RemoveBookFromUser(user *models.User, book *models.Book) error {
 	user.BookedBooks = append(user.BookedBooks[:bookIndex], user.BookedBooks[bookIndex+1:]...)
 
 	// Atualiza o usuário no Firebase
-	if err := UpdateUser(user.ID, user); err != nil {
+	if err := UpdateUser(user.ID, user, false); err != nil {
 		return err
 	}
 
@@ -129,12 +129,19 @@ func RemoveBookFromUser(user *models.User, book *models.Book) error {
 	return nil
 }
 
-func UpdateUser(id string, newUser *models.User) error {
+func UpdateUser(id string, newUser *models.User, hash bool) error {
 	ref := config.FirebaseClient.NewRef("users").Child(id)
 	var existingUser models.User
 	if err := ref.Get(context.Background(), &existingUser); err != nil {
 		return errors.New("user not found")
 	}
+
+	// Atualize a senha do usuário se necessário
+	if hash {
+		newUser.Password = newUser.HashPassword()
+	}
+
+	newUser.ID = existingUser.ID
 
 	// Atualize os dados do usuário
 	if err := ref.Set(context.Background(), newUser); err != nil {

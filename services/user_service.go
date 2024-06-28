@@ -68,7 +68,7 @@ func UpdateUser(id string, newUser *models.User) error {
 		return err
 	}
 
-	return repositories.UpdateUser(id, newUser)
+	return repositories.UpdateUser(id, newUser, true)
 }
 
 func DeleteUser(id string) error {

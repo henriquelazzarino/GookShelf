@@ -3,6 +3,7 @@ package repositories
 import (
 	"context"
 	"errors"
+	"fmt"
 
 	"github.com/henriquelazzarino/gookshelf/config"
 	"github.com/henriquelazzarino/gookshelf/models"
@@ -32,10 +33,17 @@ func CreateBook(book *models.Book) (string, error) {
 
 func GetAllBooks() ([]models.Book, error) {
 	ref := config.FirebaseClient.NewRef("books")
-	var books []models.Book
-	if err := ref.Get(context.Background(), &books); err != nil {
+	var booksMap map[string]models.Book
+	if err := ref.Get(context.Background(), &booksMap); err != nil {
+		fmt.Println(err)
 		return nil, err
 	}
+
+	var books []models.Book
+	for _, book := range booksMap {
+		books = append(books, book)
+	}
+
 	return books, nil
 }
 
