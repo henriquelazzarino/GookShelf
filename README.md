@@ -1,13 +1,13 @@
 # GookShelf
 ## Description
-GookShelf is a library application that uses the Gin framework for routing, Firebase for authentication, and JWT for access control. The application manages three main entities: Books, Users, and Publishers. There are three types of personas with different access levels: Admin, Librarian, and User.
+GookShelf is a library application that uses the Gin framework for routing, Firebase for authentication, and JWT for access control. The application manages two main entities: Books and Users. There are three types of personas with different access levels: Admin, Librarian, and User.
 
 ## Entities
 ### Book
 - name (string): Name of the book.
 - description (string): Description of the book.
 - author (string): Author of the book.
-- publisher (Publisher): Publisher of the book.
+- publisher (string): Publisher of the book.
 - isFree (boolean): Indicates if the book is available for free.
 - releaseDate (date): Release date of the book.
 - minimumAge (int): Recommended minimum age for reading the book.
@@ -16,9 +16,6 @@ GookShelf is a library application that uses the Gin framework for routing, Fire
 - picture (file): User's picture.
 - age (int): Age of the user.
 - bookedBooks (list<Book>): List of books reserved by the user.
-### Publisher
-- name (string): Name of the publisher.
-- books (list<Book>): List of books published by the publisher.
 
 ## Endpoints
 ### Books
@@ -53,22 +50,6 @@ GookShelf is a library application that uses the Gin framework for routing, Fire
 - DELETE - /user/{id}
     - Description: Delete a specific user.
     - Accessible by: Admin, User (only their own account)
-### Publishers
-- POST - /publisher
-    - Description: Create a new publisher.
-    - Accessible by: Admin
-- GET (All) - /publisher
-    - Description: Retrieve the list of all publishers.
-    - Accessible by: Admin
-- GET (One) - /publisher/{id}
-    - Description: Retrieve details of a specific publisher.
-    - Accessible by: Admin
-- PUT - /publisher/{id}
-    - Description: Update details of a specific publisher.
-    - Accessible by: Admin
-- DELETE - /publisher/{id}
-    - Description: Delete a specific publisher.
-    - Accessible by: Admin
 
 ## Business Rules
 ### Admin:
@@ -87,10 +68,11 @@ GookShelf is a library application that uses the Gin framework for routing, Fire
 3. Create a `.env` file in the config directory with the following environment variables:
     - `PORT`: Port number for the server.
     - `JWT_SECRET`: Secret key for JWT.
+    - `FIREBASE_URL`: Firebase project RTDB URL.
 4. Create a Firebase project and download the service account key.
     - 4.1. Go to the Firebase console and create a new project.
     - 4.2. Go to the project settings and Service Accounts.
-    - 4.3. Download the service account key and save it as `serviceAccountKey.json` in the config directory.
+    - 4.3. Download the service account key and save it as `serviceCredentials.json` in the config directory.
     - 4.4. Enable Firebase Realtime Database and Firebase Storage.
 5. Run `go run main.go` to start the server.
 6. Access the API using the base URL `http://localhost:{PORT}`.

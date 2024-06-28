@@ -81,5 +81,7 @@ func SetupRoutes(router *gin.Engine, secret string) {
 		userRoutes.GET("/:id", JwtMiddleware(secret, "admin"), controllers.GetUser)
 		userRoutes.PUT("/:id", JwtMiddleware(secret, "regular"), controllers.UpdateUser)
 		userRoutes.DELETE("/:id", JwtMiddleware(secret, "admin", "regular"), controllers.DeleteUser)
+		userRoutes.POST("/:userId/books/:bookId", JwtMiddleware(secret, "admin", "regular"), controllers.AddBookToUser)
+		userRoutes.DELETE("/remove/:userId/books/:bookId", JwtMiddleware(secret, "admin", "regular"), controllers.RemoveBookFromUser)
 	}
 }
